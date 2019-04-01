@@ -1,0 +1,52 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.1.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : 2.1.1-221db2718bbb
+Exec   : potentialFoam -noFunctionObjects -writep
+Date   : Aug 27 2012
+Time   : 16:05:40
+Host   : "nathan-Latitude-D820"
+PID    : 21242
+Case   : /home/nathan/Desktop/Thesis/Benchmark-4-Airbox2/iter_0048
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster
+allowSystemOperations : Disallowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Reading field p
+
+--> FOAM Warning : 
+    From function Field<Type>::Field(const word& keyword, const dictionary&, const label)
+    in file /home/opencfd/OpenFOAM/OpenFOAM-2.1.1/src/OpenFOAM/lnInclude/Field.C at line 262
+    Reading "/home/nathan/Desktop/Thesis/Benchmark-4-Airbox2/iter_0048/0/p::boundaryField::airBox_abOutlet" from line 32 to line 10
+    expected keyword 'uniform' or 'nonuniform', assuming deprecated Field format from Foam version 2.0.
+Reading field U
+
+
+Calculating potential flow
+GAMG:  Solving for p, Initial residual = 1, Final residual = 0.0841232, No Iterations 12
+GAMG:  Solving for p, Initial residual = 0.014361, Final residual = 0.0011095, No Iterations 1
+GAMG:  Solving for p, Initial residual = 0.00147064, Final residual = 0.000139854, No Iterations 4
+GAMG:  Solving for p, Initial residual = 0.000605876, Final residual = 5.66862e-05, No Iterations 4
+GAMG:  Solving for p, Initial residual = 0.000115293, Final residual = 1.04434e-05, No Iterations 10
+GAMG:  Solving for p, Initial residual = 3.14272e-05, Final residual = 2.989e-06, No Iterations 9
+GAMG:  Solving for p, Initial residual = 7.03281e-06, Final residual = 6.5138e-07, No Iterations 12
+GAMG:  Solving for p, Initial residual = 1.866e-06, Final residual = 1.78443e-07, No Iterations 11
+GAMG:  Solving for p, Initial residual = 4.59203e-07, Final residual = 9.12261e-08, No Iterations 6
+GAMG:  Solving for p, Initial residual = 1.51805e-07, Final residual = 8.56578e-08, No Iterations 1
+GAMG:  Solving for p, Initial residual = 9.50346e-08, Final residual = 9.50346e-08, No Iterations 0
+continuity error = 0.00239104
+Interpolated U error = 0.000322846
+ExecutionTime = 5.53 s  ClockTime = 6 s
+
+End
+

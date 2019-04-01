@@ -1,0 +1,59 @@
+import struct
+import mmap
+import contextlib
+import itertools
+import bpy
+
+
+#---OPEN PARAMETRIC MESH----------------------------------------------------------------------------+
+print('IMPORTING PARAMETRIC MESH')
+bpy.ops.wm.open_mainfile(filepath="Mesh/tyrell026_RUN_10.blend")
+print('IMPORT COMLETE')
+
+
+import bpy
+
+# Import variables to be adjusted
+lat_num = open("lattice_number.txt")
+lat_dir = open("lattice_direction.txt")
+lat_val = open("lattice_value.txt")
+
+lat_number = lat_num.readlines()
+lat_direction = lat_dir.readlines()
+lat_value = lat_val.readlines()
+
+
+print('DEFORMING MESH')
+for i in range(len(lat_value)):
+    bpy.data.lattices["Lattice"].points[int(lat_number[i])].co_deform[int(lat_direction[i])]=float(lat_value[i])
+    # bpy.data.lattices["Lattice"].points[1].co_deform[1]=-1
+print('MESH DEFORMATION COMPLETE')
+
+#bpy.ops.object.mode_set(mode='OBJECT')
+
+
+outfile=open('vertices.txt','w')
+
+
+i=0
+
+#sce = bpy.data.scenes.active
+#ob = sce.objects.active
+#mesh = ob.getData(mesh=1)
+
+obj = bpy.data.meshes.new('Plane')
+#obj=bpy.data.meshes['Plane']
+#obj.modifiers_applyModifier()
+obj.validate()
+obj.update()
+#obj.select = True
+bpy.ops.object.convert(target='MESH', keep_original = False) 
+#obj.to_mesh(scene=bpy.context.scene, apply_modifiers=True, settings='PREVIEW')
+
+while i <= 81:
+    planedata=bpy.data.meshes['Plane']
+    vertdata=planedata.vertices[i]
+    outfile.write('%.30f\n' %(vertdata.co.y))
+    i=i+1
+        
+outfile.close() 

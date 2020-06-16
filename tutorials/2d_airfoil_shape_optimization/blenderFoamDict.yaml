@@ -1,0 +1,31 @@
+general:
+    purgeWrite: 0
+    blenderPath: something/something/
+  
+optimizer:
+    name: COBYLA
+    maxIters: 100
+    minDiff: 1e-4
+
+costFunction:
+    drag_x:
+        source: get_cd.py
+        funcName: parse_cd
+        objective: minimize
+        
+geometry:
+    target:
+        main_body:
+            blenderName: blob
+    constraints:
+        inner_box:
+            fileName: something.stl
+        outer_box:
+            blenderName:
+
+parameterization:
+    lattice_01:
+        blenderName: lattice_01
+        constraints: 123
+        mirrir: 0 1 1
+            

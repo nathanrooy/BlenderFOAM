@@ -3,9 +3,10 @@ general:
     blenderPath: something/something/
   
 optimizer:
-    name: COBYLA
-    maxIters: 100
-    minDiff: 1e-4
+    name: Nelder-Mead
+    maxiter: 100
+    tol: 1e-6
+    disp: True
 
 costFunction:
     mse:

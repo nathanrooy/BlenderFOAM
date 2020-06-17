@@ -1,19 +1,30 @@
-import yaml
-
-def parse_yaml_config_file(yaml_file_path):
-	yaml_file = open(yaml_file_path)
-	parsed_yaml_file = yaml.load(yaml_file, Loader=yaml.FullLoader)
-	print(parsed_yaml_file.items())
-
-	pass
+def initialize_optimizer(configs):
 	
+
 	
-yaml_file_path = 'blenderFoamDict.yaml'
-parse_yaml_config_file(yaml_file_path)
+
+	return 
 
 
 def run_case(configs):
 
-	# load config values from blenderFoamDict
-
+	# initialize optimizer
+	
+	# run
+	
 	return
+	
+		
+		
+	
+def cost_function(configs):
+
+	# apply mesh deformation and save new geometry
+	
+	# prepare new openfoam iteration
+
+	# run openfoam (if nesessary)
+	
+	# collect results
+	
+	return cost

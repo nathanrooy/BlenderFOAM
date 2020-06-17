@@ -1,0 +1,31 @@
+general:
+    purgeWrite: 0
+    blenderPath: something/something/
+  
+optimizer:
+    name: COBYLA
+    maxIters: 100
+    minDiff: 1e-4
+
+costFunction:
+    mse:
+        source: get_mse.py
+        funcName: calc_mse
+        objective: minimize
+        
+geometry:
+    target:
+        main_body:
+            blenderName: blob
+    constraints:
+        inner_box:
+            fileName: something.stl
+        outer_box:
+            blenderName:
+
+parameterization:
+    lattice_01:
+        blenderName: lattice_01
+        constraints: 123
+        mirror: 0 1 1
+            
